@@ -49,7 +49,7 @@ class TidalTransfer:
                 f.writelines([
                     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n",
                     "<playlist version=\"1\" xmlns=\"http://xspf.org/ns/0/\">\n",
-                    "<title>{title}</title>\n".format(title=playlist.name).replace("&", "And"),
+                    "<title>{title}</title>\n".format(title=playlist.name.replace("&", "And").replace("<", "&lt;").replace(">", "&gt;")),
                     "   <trackList>\n"
                 ])
                 for track in tracks:
